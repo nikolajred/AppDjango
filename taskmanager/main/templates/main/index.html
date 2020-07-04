@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
-</head>
-<body>
-    <h1>Главная страница</h1>
-    <p>Параграф</p>
-</body>
-</html>
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<h1>Фирма божья коровка</h1>
+<p>Наша фирма лидер по производству молока божьих коровок</p>
+{% if tasks %}
+{% for el in tasks %}
+<div class="alert alert-warning mt-2">
+    <h3>{{ el.title }}</h3>
+    <p>{{ el.task }}</p>
+</div>
+{% endfor %}
+{% else %}
+<p>У вас нет записей!</p>
+{% endif %}
+{% endblock %}
+
+
+
+
